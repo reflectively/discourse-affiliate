@@ -44,7 +44,11 @@ plugins:
   affiliate_amazon_nl:
     default: ''
     client: true
+  special_sites:
+    default: ''
+    client: true
   affiliate_ldlc_com:
     default: ''
     client: true
     regex: "^[a-zA-Z0-9]+$"
+

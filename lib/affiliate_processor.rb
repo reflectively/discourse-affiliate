@@ -49,7 +49,14 @@ class AffiliateProcessor
     rules['www.ldlc.com'] = rule
     rules['ldlc.com'] = rule
 
-    @rules = rules
+    sites = SiteSetting.special_sites
+
+    sites.split(', ').each do |site|
+      rule = lambda do |url, uri|
+        "https://nomadgate.com/go/" + uri 
+      end
+      rules[site] = rule
+    end
   end
 
   def self.apply(url)

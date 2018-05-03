@@ -16,3 +16,4 @@ en:
     affiliate_amazon_it: "Your amazon.it (Italy) associates id."
     affiliate_amazon_nl: "Your amazon.nl (Netherlands) associates id."
     affiliate_ldlc_com: "Your ldlc.com affiliate id (without the #)."
+    special_sites: "Your nomad gate redirect sites e.g. transferwise.com, n26.com, google.com"
