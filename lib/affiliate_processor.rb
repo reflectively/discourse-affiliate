@@ -49,7 +49,7 @@ class AffiliateProcessor
     rules['www.ldlc.com'] = rule
     rules['ldlc.com'] = rule
 
-    sites = SiteSetting.special_sites
+    sites = SiteSetting.affilate_special_sites
 
     sites.split(', ').each do |site|
       rule = lambda do |url, uri|
