@@ -44,7 +44,7 @@ plugins:
   affiliate_amazon_nl:
     default: ''
     client: true
-  special_sites:
+  affiliate_special_sites:
     default: ''
     client: true
   affiliate_ldlc_com:
