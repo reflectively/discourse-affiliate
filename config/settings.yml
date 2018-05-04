@@ -47,9 +47,6 @@ plugins:
   affiliate_special_sites:
     default: ''
     client: true
-  affiliate_flystein:
-    default: ''
-    client: true
   affiliate_ldlc_com:
     default: ''
     client: true
