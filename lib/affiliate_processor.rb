@@ -57,6 +57,8 @@ class AffiliateProcessor
       end
       rules[site] = rule
     end
+
+    @rules = rules
   end
 
   def self.apply(url)
