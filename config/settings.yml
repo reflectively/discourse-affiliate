@@ -44,11 +44,17 @@ plugins:
   affiliate_amazon_nl:
     default: ''
     client: true
-  affiliate_special_sites:
+  affiliate_flystein:
     default: ''
     client: true
   affiliate_ldlc_com:
     default: ''
     client: true
     regex: "^[a-zA-Z0-9]+$"
-
+  affiliate_redirect_base_domain:
+    default: ''
+    client: true
+  affiliate_rewrite_domains:
+    default: 'n26.com|transferwise.com'
+    client: true
+    type: list
