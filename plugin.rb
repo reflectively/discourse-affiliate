@@ -1,8 +1,8 @@
 # name: discourse-affiliate
-# about: Official affiliation plugin for Discourse
-# version: 0.21
-# authors: Régis Hanol (zogstrip), Sam Saffron
-# url: https://github.com/discourse/discourse-affiliate
+# about: UnOfficial affiliation plugin for Discourse
+# version: 0.22
+# authors: Régis Hanol (zogstrip), Sam Saffron, tkrunning
+# url: https://github.com/tkrunning/discourse-affiliate
 
 enabled_site_setting :affiliate_enabled
 

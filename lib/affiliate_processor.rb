@@ -49,14 +49,29 @@ class AffiliateProcessor
     rules['www.ldlc.com'] = rule
     rules['ldlc.com'] = rule
 
-    sites = SiteSetting.affilate_special_sites
+##
+#    sites = SiteSetting.affilate_special_sites
+#
+#    sites.split(', ').each do |site|
+#      rule = lambda do |url, uri|
+#        "https://nomadgate.com/go/" + uri 
+#      end
+#      rules[site] = rule
+#    end
 
-    sites.split(', ').each do |site|
-      rule = lambda do |url, uri|
-        "https://nomadgate.com/go/" + uri 
+    rule = lambda do |url, uri|
+      code = SiteSetting.affilate_flystein
+      if code.present?
+        uri.fragment = code
+        uri.to_s
+      else
+        url
       end
-      rules[site] = rule
     end
+
+    rules['flystein.com'] = rule
+
+
   end
 
   def self.apply(url)
