@@ -13,11 +13,16 @@ describe AffiliateProcessor do
     expect(r('https://ldlc.com/some_product?xyz=1')).to eq('https://ldlc.com/some_product?xyz=1#samsshop')
   end
 
-  it 'can apply url structure to special sites' do
-    SiteSetting.affiliate_special_sites= 'google.com, yahoo.com'
+  it 'can apply affiliate code to flystein' do
+    SiteSetting.affiliate_flystein = 'samsshop'
 
-    expect(r('http://google.com')).to eq('https://nomadgate.com/go/http://google.com')
-    expect(r('https://yahoo.com')).to eq('https://nomadgate.com/go/https://yahoo.com')
+    expect(r('https://flystein.com/some_product')).to eq('https://flystein.com/some_product?af=samsshop')
+  end
+
+  it 'can apply affiliate code to flystein' do
+    SiteSetting.affiliate_redirect_base_domain = 'https://nomadgate.com/go/'
+
+    expect(r('https://n26.com')).to eq('https://nomadgate.com/go/n26')
   end
 
   it 'can apply affiliate code correctly' do
