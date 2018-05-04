@@ -63,21 +63,39 @@ class AffiliateProcessor
     rules['flystein.com'] = rule
     rules['www.flystein.com'] = rule
 
+##
+#    rule = lambda do |url, uri|
+#      base = SiteSetting.affiliate_redirect_base_domain
+#      if base.present?
+#        slug = "n26"
+#        uri = base + slug
+#        uri.to_s
+#      else
+#        url
+#      end
+#    end
+#
+#    rules['n26.com'] = rule
+#    rules['www.n26.com'] = rule
+#    rules['next.n26.com'] = rule
 
     rule = lambda do |url, uri|
       base = SiteSetting.affiliate_redirect_base_domain
       if base.present?
-        slug = "n26"
-        uri = base + slug
-        uri.to_s
-      else
-        url
+        domains = SiteSetting.affiliate_rewrite_domains
+        domains.split('|'). each do |domain|
+          if domain.present?
+            query_array = [["go", domain]]
+            uri = base
+            uri.query = URI.encode_www_form(query_array)
+            uri.to_s
+          else
+            url
+          end
       end
     end
 
-    rules['n26.com'] = rule
-    rules['www.n26.com'] = rule
-    rules['next.n26.com'] = rule
+    rules[domain] = rule
 
     @rules = rules
   end
