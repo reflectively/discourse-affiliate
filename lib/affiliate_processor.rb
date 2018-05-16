@@ -67,6 +67,9 @@ class AffiliateProcessor
       domain_name = domain_rule.split(',')[0]
       rule = lambda do |url, uri|
         slug = domain_rule.split(',')[1]
+        if domain_rule.split(',')[2] == 'url'
+          slug = slug + '?url=' + url
+        end
         base = SiteSetting.affiliate_redirect_base_domain
         if base.present?
           uri = base + slug

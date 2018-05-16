@@ -21,10 +21,10 @@ describe AffiliateProcessor do
 
   it 'can change n26 url to /go/n26' do
     SiteSetting.affiliate_redirect_base_domain = 'https://nomadgate.com/go/'
-    SiteSetting.affiliate_rewrite_domains = 'thomas.do,tkrunning|n26.com,n26|transferwise.com,transferwise'
+    SiteSetting.affiliate_rewrite_domains = 'thomas.do,tkrunning|n26.com,n26|transferwise.com,transferwise,url'
 
     expect(r('https://n26.com')).to eq('https://nomadgate.com/go/n26')
-    expect(r('https://transferwise.com')).to eq('https://nomadgate.com/go/transferwise')
+    expect(r('https://transferwise.com/borderless')).to eq('https://nomadgate.com/go/transferwise?url=https://transferwise.com/borderless')
     expect(r('http://thomas.do')).to eq('https://nomadgate.com/go/tkrunning')
   end
 

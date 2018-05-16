@@ -1,6 +1,6 @@
 # name: discourse-affiliate
 # about: Fork of the official affiliation plugin for Discourse
-# version: 0.22
+# version: 0.23
 # authors: Régis Hanol (zogstrip), Sam Saffron, tkrunning
 # url: https://github.com/tkrunning/discourse-affiliate
 

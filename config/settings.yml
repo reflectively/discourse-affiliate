@@ -55,6 +55,6 @@ plugins:
     default: 'https://geni.us/'
     client: true
   affiliate_rewrite_domains:
-    default: 'discourse.org,discourse|www.discourse.org,discourse'
+    default: 'discourse.org,discourse|www.discourse.org,discourse|meta.discourse.com,discoursemeta,url'
     client: true
     type: list
