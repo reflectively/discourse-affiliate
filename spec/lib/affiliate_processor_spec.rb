@@ -19,10 +19,17 @@ describe AffiliateProcessor do
     expect(r('https://flystein.com/some_product')).to eq('https://flystein.com/some_product?af=samsshop')
   end
 
-  it 'can apply affiliate code to flystein' do
-    SiteSetting.affiliate_redirect_base_domain = 'https://nomadgate.com/go/'
+#  it 'can change n26 url to /go/n26' do
+#    SiteSetting.affiliate_redirect_base_domain = 'https://nomadgate.com/go/'
+#
+#    expect(r('https://n26.com')).to eq('https://nomadgate.com/go/n26')
+#  end
 
-    expect(r('https://n26.com')).to eq('https://nomadgate.com/go/n26')
+  it 'can change transferwise url to /go/transferwise' do
+    SiteSetting.affiliate_redirect_base_domain = 'https://nomadgate.com/go/'
+    SiteSetting.affiliate_rewrite_domains = 'transferwise.comPLUStransferwise|n26.comPLUSn26'
+
+    expect(r('https://transferwise.com')).to eq('https://nomadgate.com/go/transferwise')
   end
 
   it 'can apply affiliate code correctly' do
