@@ -17,6 +17,7 @@ class AffiliateProcessor
   end
 
   def self.rules
+    #return @rules if @rules
     postfixes = %w{
       com com.au com.br com.mx
       ca cn co.jp co.uk de

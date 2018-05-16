@@ -52,9 +52,9 @@ plugins:
     client: true
     regex: "^[a-zA-Z0-9]+$"
   affiliate_redirect_base_domain:
-    default: ''
+    default: 'https://geni.us/'
     client: true
   affiliate_rewrite_domains:
-    default: 'n26.com,n26|transferwise.com,transferwise'
+    default: 'discourse.org,discourse|www.discourse.org,discourse'
     client: true
     type: list
