@@ -17,7 +17,6 @@ class AffiliateProcessor
   end
 
   def self.rules
-    return @rules if @rules
     postfixes = %w{
       com com.au com.br com.mx
       ca cn co.jp co.uk de
@@ -62,7 +61,7 @@ class AffiliateProcessor
     rules['flystein.com'] = rule
     rules['www.flystein.com'] = rule
 
-  domain_rules = SiteSetting.affiliate_rewrite_domains
+    domain_rules = SiteSetting.affiliate_rewrite_domains
     domain_rules.split('|').each do |domain_rule|
       domain_name = domain_rule.split(',')[0]
       rule = lambda do |url, uri|
