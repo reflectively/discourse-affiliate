@@ -69,6 +69,14 @@ class AffiliateProcessor
         slug = domain_rule.split(',')[1]
         if domain_rule.split(',')[2] == 'url'
           slug = slug + '?url=' + url
+        elsif domain_rule.split(',')[2] == 'uri'
+          if URI(url).request_uri != '/'
+            slug = slug + '?uri=' + URI(url).request_uri
+          end
+        elsif domain_rule.split(',')[2] == 'path'
+          if URI(url).path != '/' && URI(url).path != ''
+            slug = slug + '?path=' + URI(url).path
+          end
         end
         base = SiteSetting.affiliate_redirect_base_domain
         if base.present?

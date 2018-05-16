@@ -21,11 +21,16 @@ describe AffiliateProcessor do
 
   it 'can change n26 url to /go/n26' do
     SiteSetting.affiliate_redirect_base_domain = 'https://nomadgate.com/go/'
-    SiteSetting.affiliate_rewrite_domains = 'thomas.do,tkrunning|n26.com,n26|transferwise.com,transferwise,url'
+    SiteSetting.affiliate_rewrite_domains = 'thomas.do,tkrunning,uri|n26.com,n26|transferwise.com,transferwise,url|nomadgate.com,nomadgate,uri|google.com,google,path'
 
     expect(r('https://n26.com')).to eq('https://nomadgate.com/go/n26')
     expect(r('https://transferwise.com/borderless')).to eq('https://nomadgate.com/go/transferwise?url=https://transferwise.com/borderless')
-    expect(r('http://thomas.do')).to eq('https://nomadgate.com/go/tkrunning')
+    expect(r('http://thomas.do/fancypants?hi=there&yo=man')).to eq('https://nomadgate.com/go/tkrunning?uri=/fancypants?hi=there&yo=man')
+    expect(r('https://nomadgate.com/')).to eq('https://nomadgate.com/go/nomadgate')
+    expect(r('https://nomadgate.com')).to eq('https://nomadgate.com/go/nomadgate')
+    expect(r('https://google.com/')).to eq('https://nomadgate.com/go/google')
+    expect(r('https://google.com')).to eq('https://nomadgate.com/go/google')
+    expect(r('https://google.com/search?source=hp&ei=WX38WrfQM-rJ6ASwvq7QBg&q=yo')).to eq('https://nomadgate.com/go/google?path=/search')
   end
 
   it 'can apply affiliate code correctly' do
