@@ -17,3 +17,5 @@ en:
     affiliate_amazon_nl: "Your amazon.nl (Netherlands) associates id."
     affiliate_flystein: "Your Flystein affiliate code."
     affiliate_ldlc_com: "Your ldlc.com affiliate id (without the #)."
+    affiliate_rewrite_domains: "domains and slugs"
+    affiliate_redirect_base_domain: "redirect base domain and path"

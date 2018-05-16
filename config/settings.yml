@@ -55,6 +55,6 @@ plugins:
     default: ''
     client: true
   affiliate_rewrite_domains:
-    default: 'n26.com|transferwise.com'
+    default: 'n26.com,n26|transferwise.com,transferwise'
     client: true
     type: list

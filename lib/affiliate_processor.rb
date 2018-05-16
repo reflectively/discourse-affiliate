@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 #
 class AffiliateProcessor
-
   def self.create_amazon_rule(domain)
     lambda do |url, uri|
       code = SiteSetting.send("affiliate_amazon_#{domain.gsub('.', '_')}")
@@ -63,44 +62,11 @@ class AffiliateProcessor
     rules['flystein.com'] = rule
     rules['www.flystein.com'] = rule
 
-
-    rule = lambda do |url, uri|
-      base = SiteSetting.affiliate_redirect_base_domain
-      if base.present?
-        slug = "n26"
-        uri = base + slug
-        uri.to_s
-      else
-        url
-      end
-    end
-
-    rules['n26.com'] = rule
-    rules['www.n26.com'] = rule
-    rules['next.n26.com'] = rule
-
-   # rule = lambda do |url, uri|
-   #    base = SiteSetting.affiliate_redirect_base_domain
-   #    if base.present?
-   #      domains = SiteSetting.affiliate_rewrite_domains
-   #      # n26.com|transferwise.com
-   #      byebug
-   #      domains.split('|').each do |domain|
-   #        slug = domain
-   #        uri = base + slug
-   #        uri.to_s
-   #      end
-   #    else
-   #      url
-   #    end
-   #  end
-
-   domain_rules = SiteSetting.affiliate_rewrite_domains
-
+  domain_rules = SiteSetting.affiliate_rewrite_domains
     domain_rules.split('|').each do |domain_rule|
-      domain_name = domain_rule.split('PLUS')[0]
+      domain_name = domain_rule.split(',')[0]
       rule = lambda do |url, uri|
-        slug = domain_rule.split('PLUS')[1]
+        slug = domain_rule.split(',')[1]
         base = SiteSetting.affiliate_redirect_base_domain
         if base.present?
           uri = base + slug
@@ -112,9 +78,6 @@ class AffiliateProcessor
 
       rules[domain_name] = rule
     end
-
-    #rules['transferwise.com'] = rule
-    #rules['www.transferwise.com'] = rule
 
     @rules = rules
   end
