@@ -34,7 +34,8 @@ with `bar.com,bar,path`:
 with only `bar.com,bar`:
 
 - `https://bar.com` --> `https://foo.com/out/bar`
-- `https://bar.com/search?q=something` --> `https://foo.com/out/bar`
+- `https://bar.com/?q=something` --> `https://foo.com/out/bar`
+- `https://bar.com/search?q=something` --> `https://bar.com/search?q=something`
 
 ## Installation
 

@@ -67,6 +67,7 @@ class AffiliateProcessor
       domain_name = domain_rule.split(',')[0]
       rule = lambda do |url, uri|
         slug = domain_rule.split(',')[1]
+        should_rewrite = true
         if domain_rule.split(',')[2] == 'url'
           slug = slug + '?url=' + url
         elsif domain_rule.split(',')[2] == 'uri'
@@ -77,9 +78,13 @@ class AffiliateProcessor
           if URI(url).path != '/' && URI(url).path != ''
             slug = slug + '?path=' + URI(url).path
           end
+        else
+          if URI(url).path != '/' && URI(url).path != '' && URI(url).path != '/index.html' && URI(url).path != '/index.htm'
+            should_rewrite = false
+          end
         end
         base = SiteSetting.affiliate_redirect_base_domain
-        if base.present?
+        if base.present? && should_rewrite == true
           uri = base + slug
           uri.to_s
         else
