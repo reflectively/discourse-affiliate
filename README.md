@@ -17,7 +17,7 @@ To define cusom domains to rewrite the links for, do as follows:
 with `bar.com,bar,url`:
 
 - `https://bar.com` --> `https://foo.com/out/bar?url=https://bar.com`
-- `https://bar.com/search?q=something` --> `https://foo.com/out/bar?url=https://google.com/search?q=something`
+- `https://bar.com/search?q=something` --> `https://foo.com/out/bar?url=https://bar.com/search?q=something`
 
 with `bar.com,bar,uri`:
 
