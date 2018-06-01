@@ -49,3 +49,73 @@ If you have issues or suggestions for the plugin, please bring them up on [Disco
 ## License
 
 MIT
+
+## Custom sites
+
+Domains:
+
+* sensiseeds.com
+* weedseedshop.com
+* Grow-shop24.de
+* shop.pro-emit.de
+
+
+1. Sensiseeds.com
+
+link looks like this:
+
+http://www.sensiseeds.com/refer.asp?refid={22444B85-CBC8-4777-89F4-B332719C1B45}&link=[URI]
+
+pretty straight fordward. affiliate ID is: {22444B85-CBC8-4777-89F4-B332719C1B45}
+
+parameter for URI is 'link'. link=/de/... and link=de/.../ -> both variations are working.
+
+
+Example:
+
+http://www.sensiseeds.com/de/feminisierte-samen/whitelabel/white-skunk-feminisiert
+
+http://www.sensiseeds.com/refer.asp?refid={22444B85-CBC8-4777-89F4-B332719C1B45}&link=de/feminisierte-samen/whitelabel/white-skunk-feminisiert
+
+2. Weedseedshop.com
+
+Same structure as with sensiseeds, since it's same company and same system
+
+affiliate id is {17331B18-B00E-4B82-A9DC-77BC0A6F6BB9}
+
+link looks like this:
+
+http://www.weedseedshop.com/refer.asp?refid={17331B18-B00E-4B82-A9DC-77BC0A6F6BB9}&link=[URI]
+
+
+3. Grow-shop24.de
+
+also easy
+
+affliate id is Jm5siqwQTjB0lgZjkb07
+
+examples:
+
+home link reg: https://www.grow-shop24.de
+aff home link aff: https://www.grow-shop24.de/?ref=Jm5siqwQTjB0lgZjkb07
+
+
+deep link reg: https://www.grow-shop24.de/homebox
+deep link aff: https://www.grow-shop24.de/homebox?ref=Jm5siqwQTjB0lgZjkb07
+
+!!! NOT WORKING WITH a / before ?ref parameter when a URI is existent: https://www.grow-shop24.de/homebox/?ref=Jm5siqwQTjB0lgZjkb07
+
+4. shop.pro-emit.de
+
+aff id is 'cannabisanbauen'
+
+home link reg: https://shop.pro-emit.de
+home link aff: https://shop.pro-emit.de/?sPartner=cannabisanbauen
+
+deep link reg: https://shop.pro-emit.de/pro-emit/127/sunflow-4er-bundle.html
+
+deep link aff: https://shop.pro-emit.de/pro-emit/127/sunflow-4er-bundle.html?sPartner=cannabisanbauen
+
+!!! NOT WORKING WITH a / before ?sPartner parameter when URI is existent
+
+4. 
